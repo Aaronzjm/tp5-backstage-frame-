@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>布艺家纺</title>
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta content="telephone=no,email=no" name="format-detection">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no,viewport-fit=cover"> 
+	<script charset="utf-8" type="text/javascript" src="__STATIC__/js/jquery-3.2.1.min.js"></script>
+	<script charset="utf-8" type="text/javascript" src="__STATIC__/js/swiper-3.4.2.min.js"></script>
+	<script charset="utf-8" type="text/javascript" src="__STATIC__/js/common.js"></script>
+	<link href="__STATIC__/css/swiper-3.4.2.min.css" rel="stylesheet">
+	<link href="__STATIC__/css/common.css" rel="stylesheet">
+	
+<style type="text/css">
+	*{
+	padding:0;
+	margin:0;
+	font-size: 0.65rem;
+	color:#353535;
+	}
+	a{
+	text-decoration: none;
+	}
+	html, body {
+	position: relative;
+	height: 100%;
+	}
+	body {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif; 
+	color:#000;
+	margin: 0;
+	padding: 0;
+	}
+	/*公用*/
+	.blockSpace {
+	margin-bottom: 0.4rem;
+	background-color: #fff;
+	}
+	/*公用end*/
+	/*返回头部*/
+	.returnTitle{
+	background: #fff;
+	width: 100%;
+	height: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	border-bottom: 1px solid #e9e9e9;
+	font-size: 0.65rem;
+	}
+	.returnTitle-left{
+	float: left;
+	width: 2rem;
+	height: 2rem;
+	background: url(public/images/mbimages/message/left-icon.png) no-repeat;
+	background-size: 0.4rem 0.8rem;
+	background-position: 50% 50%;
+	font-size: 0.55rem;
+	}
+	.returnTitle-right{
+	float: right;
+	width: 2rem;
+	height: 2rem;
+	}
+	/*返回头部 end*/
+	
+	/*content*/
+	.loginTitle{
+		width: 100%;
+	}
+	.loginTitle img{
+		display: block;
+		height: 1.5rem;
+		width: 5.25rem;
+		padding:1.5rem 0 2rem 0;
+		margin: 0 auto;
+	}
+	.col{
+		position: relative;
+		margin: 0 1rem;
+    	padding: 0.65rem 0rem 0.65rem 3rem;
+		border-bottom: 1px solid #8b8b8b;
+	}
+	.col2{
+		position: relative;
+		margin: 0 1rem;
+    	padding: 0.65rem 0rem 0.65rem 3rem;
+		border-bottom: 1px solid #8b8b8b;
+	}
+	.col-name{
+		position: absolute;
+	    top: 0.65rem;
+	    left: 0;
+	    font-size: 0.55rem;
+	}
+	.col input{
+		font-size: 0.55rem;
+	    width: 90%;
+	    height: 100%;
+	}
+	.col input[type='search']::-webkit-input-placeholder{
+		font-size: 0.5rem;
+	    color: #95a5a6;
+	}
+	.col2 input{
+		font-size: 0.5rem;
+	    color: #95a5a6;
+	    width: 60%;
+	    height: 100%;
+	}
+	.col-code{
+		font-size:0.5rem;
+		border:1px solid #8b8b8b;
+		color:#8b8b8b;
+		border-radius:10px;
+		padding:0.1rem 0.3rem;
+	}
+	.col2 .cc-clear{
+	    right: 4.5rem;
+	}
+	.cc-clear{
+		position: absolute;
+	    right: 0;
+	    top: 1rem;
+		width: 0.3rem;
+		height: 0.3rem;
+		background:url('clear-icon.png') no-repeat;
+		background-size: 0.3rem 0.3rem;
+	}
+	.changeCon{
+		padding-bottom: 2.5rem;
+	}
+	.chanLogin{
+		font-size: 0.5rem;
+		float: right;
+		padding: 0.5rem 1rem 0 0;
+	}
+	.chanLogin-left{
+		font-size: 0.5rem;
+		float: left;
+		padding: 0.5rem 0 0 1rem;
+	}
+	.chanLogin-right{
+		font-size: 0.5rem;
+		float: right;
+		padding: 0.5rem 1rem 0 0;
+	}
+	.buttom-login{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 1rem 0 1rem;
+		font-size: 0.6rem;
+		height: 1.75rem;
+		color:#fff;
+		background-color: #b78c56;
+		opacity: 0.5;
+	}
+	.agree{
+		padding:0 1rem;
+		line-height: 0.75rem;
+		position: fixed;
+    	bottom: 0.5rem;
+	}
+	.agree label{
+		font-size: 0.5rem;
+		color: #8b8b8b;
+	}
+	.agree span{
+		font-size: 0.5rem;
+	}
+	.agree img{
+		width: 0.5rem;
+		height: 0.5rem;
+	}
+	.noshow{
+		display: none;
+	}
+	.input-choose{
+		border-bottom:1px solid #b78c56;
+	}
+</style>
+
+</head> 
+<body>
+	<div class="returnTitle">
+		<a href="javascript:history.go(-1);void(0);" class="returnTitle-left"></a>
+		注册
+		<a class="returnTitle-right"></a>
+	</div>
+
+	<div class="loginTitle">
+		<img src="__STATIC__/images/user/logo-icon.png">
+	</div>
+	<div class="changeCon">
+		<div class="col">
+			<span class="col-name">用户名</span>
+			<input type="text" placeholder="请输入用户名（设置后将无法修改）">
+			<div class="cc-clear noshow"></div>
+		</div>
+		<div class="col">
+			<span class="col-name">手机号</span>
+			<input type="number" name="" placeholder="请输入手机号">
+			<div class="cc-clear noshow"></div>
+		</div>
+		<div class="col col2">
+			<span class="col-name">验证码</span>
+			<input type="number" placeholder="请输入验证码">
+			<div class="cc-clear noshow"></div>
+			<span class="col-code">获取验证码</span>
+		</div>
+		<div class="col">
+			<span class="col-name">设置密码</span>
+			<input type="password" name="" placeholder="6-20位，数字、字母、字符至少包含两种">
+			<div class="cc-clear noshow"></div>
+		</div>
+		<div class="col">
+			<span class="col-name">确认密码</span>
+			<input type="password" name="" placeholder="请再次输入密码">
+			<div class="cc-clear noshow"></div>
+		</div>
+	</div>
+	<div class="agree ">
+		<img src="gant-icon.png">
+		<label for="agree">注册账号即表示您同意布艺家纺网</label>
+		<span class="agreen1">“服务协议”</span>
+		<label for="agree">和</label>
+		<span class="agreen2">“隐私政策”</span>
+	</div>
+	<div class="buttom-login">注册</div>
+	<a class="chanLogin-left">已有账号，去登录 ></a>
+	
+	<script type="text/javascript">
+		$(function(){
+			$(".col input").on("input",function(){
+				console.log($(this).val())
+			})
+			$(".col input").focus(function(){
+				if($(this).val()>0){
+					$(this).parent().find("div").removeClass("noshow");
+				}
+				$(this).parent().addClass("input-choose");
+			})
+			$(".col input").keydown(function(){
+				$(this).parent().find("div").removeClass("noshow");
+			})
+
+			$(".col input").blur(function(){
+				$(this).parent().removeClass("input-choose");
+			// 	$(".cc-clear").addClass("noshow")
+			})
+			$(".cc-clear").on("click",function(){
+				console.log(1)
+				$(this).addClass("noshow");
+				$(this).parent().find("input").val('');
+				$(this).parent().find("input").focus();
+			})
+			$(".chanLogin").on("click",function(){
+				if($(".changeCon").hasClass("noshow")){
+					$(".changeCon").removeClass("noshow")
+					$(this).parents(".changeCon").addClass("noshow")
+				}
+				if($(".agree").hasClass("noshow")){
+					$(".agree").removeClass("noshow")
+				}else{
+					$(".agree").addClass("noshow")
+				}
+			})
+		})
+	</script>
+</body>
+</html>
