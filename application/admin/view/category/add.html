@@ -1,0 +1,43 @@
+{include file="public/header"}
+<div class="page-container">
+	<form action="{:url('category/save')}" method="post" class="form form-horizontal" id="form-category-add">
+		<div id="tab-category" class="HuiTab">
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-3">
+					<span class="c-red">*</span>
+					分类名称：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<input type="text" class="input-text" value="" placeholder="" id="" name="">
+				</div>
+				<div class="col-3">
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-3">
+					<span class="c-red">*</span>
+					上级栏目：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<span class="select-box">
+					<select class="select" id="sel_Sub" name="sel_Sub" onchange="SetSubID(this);">
+						<option value="0">顶级分类</option>
+						<option value="10">分类一级</option>
+						<option value="101">&nbsp;&nbsp;├ 分类二级</option>
+						<option value="102">&nbsp;&nbsp;├ 分类二级</option>
+						<option value="20">分类一级</option>
+						<option value="200">&nbsp;&nbsp;├ 分类二级</option>
+					</select>
+					</span>
+				</div>
+				<div class="col-3">
+				</div>
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-9 col-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</div>
+
+{include file="public/footer"}
