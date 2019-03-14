@@ -237,6 +237,17 @@ return [
     'paginate'               => [
         'type'      => 'bootstrap',
         'var_page'  => 'page',
+        'var_page'  => 'page',
         'list_rows' => 15,
+    ],
+
+    //验证码配置
+    'captcha'                 => [
+        //过期时间
+        'expire'    => 1800,
+        //切换为中文验证码
+        'useZh'     => false,
+        //验证码长度
+        'length'    => 4,
     ],
 ];
