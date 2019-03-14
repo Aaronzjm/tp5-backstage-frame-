@@ -8,7 +8,6 @@
 
 namespace app\common\validate;
 
-
 use think\Exception;
 use think\Request;
 use think\Validate;
@@ -22,7 +21,6 @@ class BaseValidate extends Validate
         if($result){
             return true;
         }else{
-            return false;
             $error = $this->getError();
             throw new Exception($error);
         }

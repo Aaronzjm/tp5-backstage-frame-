@@ -41,9 +41,9 @@
 					<td><input name="listOrder" listId="<?=$v['id'];?>" type="number" value="<?=$v['listOrder'];?>" style="text-align: center"></td>
 					<td class="text-l"><?=$v['name'] ;?></td>
 					<td><?=$v['create_time'] ;?></td>
-					<td class="td-status"><?=status($v['status'])?></td>
+					<td class="td-status"><a href="{:url('category/status',['id'=>$v['id'],'status'=>$v['status']==1?0:1])}"><?=status($v['status'])?></a></td>
 					<td class="f-14"><a href="{:url('category/index',['parent_id'=>$v['id']])}" title="获取子栏目">获取子栏目&nbsp;&nbsp;</a><a title="编辑" href="javascript:;" onclick="o2o_promp('栏目编辑','{:url('category/edit',['id'=>$v['id']])}','','300')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
-						<a title="删除" href="javascript:;" onclick="o2o_del({:url('category/statys',['id'=>$v['id'],['status'=>-1])}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+						<a title="删除" href="javascript:;" onclick="o2o_del({:url('category/statys',['id'=>$v['id'],['status'=>-1]])}')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 				</tr>
 				<?php }?>
 			</tbody>

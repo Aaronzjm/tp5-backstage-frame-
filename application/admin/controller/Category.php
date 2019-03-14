@@ -2,7 +2,7 @@
 namespace app\admin\controller;
 
 use app\common\controller\BaseController;
-use app\common\validate\PositiveInteger;
+use app\common\validate\IdMustPositiveInteger;
 
 class Category extends BaseController
 {
@@ -53,6 +53,7 @@ class Category extends BaseController
         if(!empty($data['id'])){
             $this->update($data);
         }
+        (new IdMustPositiveInteger())->goCheck();
         $res = $this->obj->add($data);
         if($res){
             $this->success('新增成功');
@@ -98,7 +99,16 @@ class Category extends BaseController
         $this->result($_SERVER['HTTP_REFERER'],0,'更新失败');
     }
 
-    public function status($id,$status){
-
+    /**
+     * 栏目状态的修改
+     */
+    public function status(){
+        $data = input('get.');
+        $res = $this->obj->save(['status'=>$data['status']],['id'=>intval($data['id'])]);
+        if($res){
+            $this->success('更新成功');
+        }else{
+            $this->error('更新失败');
+        }
     }
 }

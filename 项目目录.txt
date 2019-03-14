@@ -1,0 +1,7 @@
+application/
+├──admin  后台控制器，视图等
+├──common 公用的控制器，视图等
+├──index  公用的控制器，视图等
+public/static/资源
+├──admin 后台所有资源（js,css,image）
+├──index 前端所有资源（js,css,image）
