@@ -1,11 +1,16 @@
 <?php
 namespace app\common\model;
 
-
 use think\Model;
 
 class Category extends Model
 {
+    protected $hidden = ['create_time', 'update_time'];
+
+    public function items(){
+        return $this->hasMany('CategoryLv2','parent_id','id');
+    }
+
     //protected $autoWriteTimestamp = true;或者database里直接配置
     public function add($data)
     {
@@ -14,14 +19,13 @@ class Category extends Model
     }
 
     /**
-     * 获取顶级栏目
+     * 获取通过的顶级栏目
      * @return 顶级栏目集合
      */
     public function getNormalFirstCategory()
     {
         $data = [
-            'status' => 1,
-            'parent_id' => 0
+            'status' => 1
         ];
         $order = [
             'id' => 'desc'
@@ -32,10 +36,13 @@ class Category extends Model
         return $level1;
     }
 
-    public function getFirstCategory($parent_id=0)
+    /**
+     * 获取所有的顶级栏目
+     * @return 顶级栏目集合
+     */
+    public function getFirstCategory()
     {
         $data = [
-            'parent_id' => $parent_id,
             'status' => ['neq',-1]
         ];
         $order = [
@@ -46,7 +53,14 @@ class Category extends Model
             ->order($order)
             ->paginate();
         return $res;
-        //echo $this->getLastSql();sql测试语句并输出
-        //echo $parent_id;
+    }
+
+    /**
+     * 获取所有的栏目
+     * @return 所有栏目集合
+     */
+    public static function getAllCategory(){
+        $res = self::with(['items'])->select();
+        return json_decode($res);
     }
 }

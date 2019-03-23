@@ -44,19 +44,17 @@ class Login extends BaseController
      * 登陆功能
      */
     public function login(){
-        (new captchaValidate())->captchaCheck();
+        (new captchaValidate())->captchaCheck();//后台验证验证码
         $data = $this->getData();
-        print_r($data);exit();
         $res = $this->obj->get(
-            ['user_name'=>$data['username']],
-            ['password'=>$data['password']]
+            ['username'=>$data['username']]
         );
-        if($res){
-            $this->obj->save(['status'=>1],['user_name'=>$data['username']]);
+        if($res['password']==md5($data['password'])){
+            $this->obj->save(['status'=>1],['username'=>$data['username']]);
             session('username',$data['username']);
             return $this->success('登陆成功','index/index');
         }else{
-            return $this->error('登陆失败');
+            return $this->error('密码错误');
         }
     }
 }

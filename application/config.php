@@ -141,8 +141,10 @@ return [
     // 视图输出字符串内容替换
     'view_replace_str'       => [
         '__STATICindex__' => '/static/index',
-       '__STATICadmin__' => '/static/admin'
+        '__STATICadmin__' => '/static/admin',
+        '__websitUrl__' => 'http://tp5_shop.com/index.php/'
     ],
+
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
     'dispatch_error_tmpl'    => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

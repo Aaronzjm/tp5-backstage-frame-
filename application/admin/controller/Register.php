@@ -11,7 +11,6 @@ namespace app\admin\controller;
 
 use app\common\controller\BaseController;
 use app\common\validate\RegisterValidate;
-use think\Request;
 
 class Register extends BaseController
 {
@@ -33,10 +32,14 @@ class Register extends BaseController
      */
     public function register(){
         (new RegisterValidate())->goCheck();
-        $post = $this->getData();
+        $post = $this->getData();;
+        $rp = $this->obj->where('user_name',$post['username'])->select();
+        if($rp){
+            $this->error('改用户已经存在');
+        }
         $data = [
             'username' => $post['username'],
-            'password' => $post['password']
+            'password' => md5($post['password'])
         ];
         $res = $this->obj->save($data);
         if($res){

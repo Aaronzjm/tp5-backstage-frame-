@@ -22,8 +22,7 @@ class Category extends BaseController
      */
     public function index()
     {
-        $parent_id = input('get.parent_id',0,'intval');
-        $CLevel = $this->obj->getFirstCategory($parent_id);
+        $CLevel = $this->obj->getFirstCategory();
         return $this->fetch('',[
             'CLevel' => $CLevel,
         ]);
