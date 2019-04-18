@@ -9,11 +9,8 @@
 namespace app\admin\controller;
 
 
-use app\common\controller\BaseController;
 use app\common\validate\captchaValidate;
-use think\captcha\Captcha;
 use think\Request;
-use yii\captcha\CaptchaValidator;
 
 class Login extends BaseController
 {

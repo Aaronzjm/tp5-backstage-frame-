@@ -9,8 +9,6 @@
 namespace app\admin\controller;
 
 use app\common\model\Category as modelCategory;
-use app\common\controller\BaseController;
-use think\Request;
 
 class Product extends BaseController
 {
@@ -28,9 +26,4 @@ class Product extends BaseController
             ]);
     }
 
-    public function product_save(){
-        $request = Request::instance();
-        $data = $request->param();
-        var_dump($data);exit();
-    }
 }

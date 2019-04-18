@@ -2,15 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: Administrator
- * Date: 2019/3/7
- * Time: 13:15
+ * Date: 2019/4/17
+ * Time: 16:42
  */
 
-namespace app\common\controller;
+namespace app\admin\controller;
 
 
 use think\Controller;
-use think\Request;
 
 class BaseController extends Controller
 {

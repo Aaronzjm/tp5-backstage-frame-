@@ -142,7 +142,8 @@ return [
     'view_replace_str'       => [
         '__STATICindex__' => '/static/index',
         '__STATICadmin__' => '/static/admin',
-        '__websitUrl__' => 'http://tp5_shop.com/index.php/'
+        '__websitUrl__' => 'http://tp5_shop.com/index.php',
+        '__websitImg__' => 'http://tp5_shop.com',
     ],
 
     // 默认跳转页面对应的模板文件

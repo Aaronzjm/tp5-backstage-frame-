@@ -1,443 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>布艺家纺</title>
-	<meta content="yes" name="apple-mobile-web-app-capable">
-	<meta content="yes" name="apple-touch-fullscreen">
-	<meta content="telephone=no,email=no" name="format-detection">
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no,viewport-fit=cover"> 
-	<script charset="utf-8" type="text/javascript" src="__STATICindex__/js/jquery-3.2.1.min.js"></script>
-	<script charset="utf-8" type="text/javascript" src="__STATICindex__/js/swiper-3.4.2.min.js"></script>
-	<script charset="utf-8" type="text/javascript" src="__STATICindex__/js/mbjs/common.js"></script>
-	<link href="__STATICindex__/css/swiper-3.4.2.min.css" rel="stylesheet">
-	<link href="__STATICindex__/css/index.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>首页</title>
+	<!-- Set render engine for 360 browser -->
+	<meta name="renderer" content="webkit">
+	<!-- No Baidu Siteapp-->
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
 
-	<script type="text/javascript">
-		window.onload=function(){
-			as=$(".center-title .write").height(); 
-			//点击图片放大
-			$(function(){
-				$("img").click(function(){
-					$(this).toggleClass("min");
-					$(this).toggleClass("max");
-				})
-			});
-	  		//top-banner轮播图方法
-	  		var swiper1 = new Swiper('.top-banner .swiper-container', {
-	  			/*loop: true,
-	  			autoplay: 1000,
-	  			slidesPerView: 'auto', 
-	  			loop: true, */
-	  			pagination: '.top-banner .swiper-pagination',
+	<!-- Add to homescreen for Chrome on Android
+	<meta name="mobile-web-app-capable" content="yes"> -->
 
-	  		});
-	  		//center-3-banner轮播图方法
-	  		var swiper2 = new Swiper('.center-3-banner .swiper-container', { 
-	  			slidesPerView: 'auto',
-	  			spaceBetween: 8,
-	  		});
-		    //center-3-banner2轮播图方法
-		    var swiper3 = new Swiper('.center-3-banner2 .swiper-container', { 
-		    	slidesPerView: 'auto',
-		    	spaceBetween: 8,
-		    });
-		    //center-4-banner轮播图方法
-		    var swiper4 = new Swiper('.center-4-banner .swiper-container', { 
-		    	slidesPerView: 'auto',
-		    	spaceBetween: 8,
-		    });
-		    //3D轮播图方法
-		    var swiper = new Swiper('.TD-banner .swiper-container', {
-		    	loop:true,
-		    	effect: 'coverflow',
-		    	grabCursor: true,
-		    	centeredSlides: true,
-		    	slidesPerView: 'auto',
-		    	coverflowEffect: {
-		    		rotate: 50,
-		    		stretch: 0,
-		    		depth: 100,
-		    		modifier: 1,
-		    		slideShadows : true,
-		    	},
-		    });
-		    //foot底部方法
-		    $(function(){
-				//添加图片
-				var foots=$(".foot a").eq(1); 
-				$(".foot .foot-mb-4>img").each(function () {
-					var name = $(this).attr("data-imgname");  
-					var src = "images/" + name + "-icon.png"
-		            //设置img的属性和值。
-		            $(this).attr("src", src);
-		        });
+	<!-- Add to homescreen for Safari on iOS
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="Amaze UI"/>-->
 
-		        	$(foots).addClass("footActivity");
-		            //找到所有 foot-mb-4 的子元素(img)
-		            $img = $(foots).children("img");
-		            name = $img.attr("data-imgname");
-		            src = "images/" + name + "-icon-selected.png";
-		            //设置img的属性和值。
-		            $img.attr("src", src);
-		        /*//点击事件
-		        $(".foot .foot-mb-4").click(function () {
-		            // 取消当前激活状态
-		            var $img = $(".footActivity>img");
-		            //返回被选元素的属性值
-		            var name = $img.attr("data-imgname");
-		            var src = "images/" + name + "-icon.png";
-		            $img.attr("src", src);
-		            $(".footActivity").removeClass("footActivity");
-
-		            // 添加新状态
-		            $(this).addClass("footActivity");
-		            //找到所有 foot-mb-4 的子元素(img)
-		            $img = $(this).children("img");
-		            name = $img.attr("data-imgname");
-		            src = "images/" + name + "-icon-selected.png";
-		            //设置img的属性和值。
-		            $img.attr("src", src);
-
-		            //content根据点击按钮加载不同的html
-		            //var page = $(this).attr("data-src");
-		            //if(page){
-		            //    $("#content").load("../html/" + page)
-		            //}
-		        });
-		        // 自动点击第一个菜单
-		       /* function hello(){   
-		        	$(".foot .foot-mb-4")[0].click();   
-		        }   
-				//使用方法名字执行方法 setTimeout只执行一次  
-				var t1 = window.setTimeout(hello,100);  
-*/
-			})
-		};
-
-
-
-
-	</script>
-
+	<link rel="stylesheet" href="__STATICindex__/assets/css/amazeui.min.css">
+	<link rel="stylesheet" href="__STATICindex__/assets/css/app.css">
 </head>
-
 <body>
-	<div class="top-head">
-		<div class="top-category">
-			<img src="images/right-class-icon.png">
-		</div>
-		<div class="top-search">
-			<img src="images/search-icon.png">
-		</div>
-		
-	</div>
+<div class="am-slider am-slider-default">
+	<ul class="am-slides">
+		<?php foreach($banners as $k =>$v){?>
+			<li><img src="__websitImg__<?=$v->pic_path?>" /></li>
+		<?php }?>
+	</ul>
+</div>
+<div>
+	<ul class="am-avg-sm-4">
+		<li>1</li>
+		<li>14</li>
+		<li>13</li>
+		<li>12</li>
+		<li>1</li>
+		<li>14</li>
+		<li>13</li>
+		<li>12</li>
+	</ul>
+</div>
 
-	<!--顶部轮播-->
-	<div class="top-banner">
-		<div class="swiper-container">
-			<div class="swiper-wrapper" style="height: 7.75rem;">
-				<div class="swiper-slide">
-					<img src="images/banner.png">
-				</div>
-				<div class="swiper-slide">
-					<img src="images/banner.png">
-				</div>
-				<div class="swiper-slide">
-					<img src="images/banner.png">
-				</div>
-			</div>
 
-			<div class="swiper-pagination"></div>
-		</div>
-	</div>
-	<!--顶部轮播 end-->
-	
-	<!--中间轮播-->
-	<div class="center-title">
-		<div class="write">热卖爆款</div>
-	</div>
-	<div class="center-3-banner2 blockSpace">
-		<div class="swiper-container">
-			<div class="swiper-wrapper banner-line-space">
-				<div class="swiper-slide">
-					<div class="img">
-						<a href="javascript:void(0)">
-							<img src="images/banner-3-icon.png">
-						</a>
-					</div>
-					<div class="swiper-title">
-						<font class="typeWrite">#55#</font><br/>
-						<font class="typeWrite2">雅致简约系列</font>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="img">
-						<a href="javascript:void(0)">
-							<img src="images/banner-3-icon.png">
-						</a>
-					</div>
-					<div class="swiper-title">
-						<font class="typeWrite">#66#</font><br/>
-						<font class="typeWrite2">雅致简约系列</font>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="img">
-						<a href="javascript:void(0)">
-							<img src="images/banner-3-icon.png">
-						</a>
-					</div>
-					<div class="swiper-title">
-						<font class="typeWrite">#77#</font><br/>
-						<font class="typeWrite2">雅致简约系列</font>
-					</div>
-				</div> 
-				<div class="swiper-slide">
-					<div class="img">
-						<a href="javascript:void(0)">
-							<img src="images/banner-3-icon.png">
-						</a>
-					</div>
-					<div class="swiper-title">
-						<font class="typeWrite">#88#</font><br/>
-						<font class="typeWrite2">雅致简约系列</font>
-					</div>
-				</div>
-			</div>
-			<div class="swiper-pagination"></div>
-		</div>
-	</div>
-	<!--中间轮播 end-->
-
-	<!--中间轮播 2-->
-	<div class="center-title2">
-		<div class="write">专属定制</div>
-	</div>
-	<div class="center-3-banner2 blockSpace">
-		<div class="swiper-container">
-			<div class="swiper-wrapper banner-line-space">
-				<div class="swiper-slide">
-					<div class="img">
-						<a href="javascript:void(0)">
-							<img src="images/banner-3-icon.png">
-						</a>
-					</div>
-					<div class="swiper-title">
-						<font class="typeWrite">#55#</font><br/>
-						<font class="typeWrite2">雅致简约系列</font>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="img">
-						<a href="javascript:void(0)">
-							<img src="images/banner-3-icon.png">
-						</a>
-					</div>
-					<div class="swiper-title">
-						<font class="typeWrite">#66#</font><br/>
-						<font class="typeWrite2">雅致简约系列</font>
-					</div>
-				</div>
-				<div class="swiper-slide">
-					<div class="img">
-						<a href="javascript:void(0)">
-							<img src="images/banner-3-icon.png">
-						</a>
-					</div>
-					<div class="swiper-title">
-						<font class="typeWrite">#77#</font><br/>
-						<font class="typeWrite2">雅致简约系列</font>
-					</div>
-				</div> 
-				<div class="swiper-slide">
-					<div class="img">
-						<a href="javascript:void(0)">
-							<img src="images/banner-3-icon.png">
-						</a>
-					</div>
-					<div class="swiper-title">
-						<font class="typeWrite">#88#</font><br/>
-						<font class="typeWrite2">雅致简约系列</font>
-					</div>
-				</div>
-			</div>
-			<div class="swiper-pagination"></div>
-		</div>
-	</div>
-	<!--中间轮播 end-->
-	
-	<!--热门活动-->
-	<div class="hotActivity blockSpace">
-		<img src="images/active-banner-icon.png">
-		<a href="javascript:void(0)"><div class="icon">
-			热门<br/>活动
-		</div></a>
-	</div>
-	<!--热门活动 end-->
-	
-	<!--3D轮播-->
-	<div class="center-title2">
-		<div class="write">入驻商家</div>
-	</div>
-	<div class="TD-banner blockSpace">
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide" >
-					<div class="businessIndex">
-						<img class="businessIndex-icon" src="images/business-icon.png">
-						<div class="businessIndex-info">
-							浙江中华家纺集团有限公司<br/>
-							<font>杭州市&nbsp;|&nbsp;窗帘供应商</font>
-						</div>
-					</div>
-					<img class="img" src="images/banner3D-icon.png">
-				</div>
-				<div class="swiper-slide" >
-					<div class="businessIndex">
-						<img class="businessIndex-icon" src="images/business-icon.png">
-						<div class="businessIndex-info">
-							浙江中华家纺集团有限公司<br/>
-							<font>杭州市&nbsp;|&nbsp;窗帘供应商</font>
-						</div>
-					</div>
-					<img class="img" src="images/banner3D-icon.png">
-				</div>
-				<div class="swiper-slide" >
-					<div class="businessIndex">
-						<img class="businessIndex-icon" src="images/business-icon.png">
-						<div class="businessIndex-info">
-							浙江中华家纺集团有限公司<br/>
-							<font>杭州市&nbsp;|&nbsp;窗帘供应商</font>
-						</div>
-					</div>
-					<img class="img" src="images/banner3D-icon.png">
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--3D轮播 end-->
-	
-	<!--专题推荐-->
-	<div class="center-title2">
-		<div class="write">专题推荐</div>
-	</div>
-	<!--公用的专题模板-->
-	<div class="titleT">
-		<!--第一块-->
-		<div class="poster">
-			<a href="javascript:void(0)">
-				<img src="images/art-icon.png"></a>
-				<div class="mask"></div>
-				<div class="poster-font">·2017年打造流行别致</div>
-			</div>
-			<div class="center-4-banner">
-				<div class="swiper-container">
-					<div class="swiper-wrapper banner-line-space">
-						<div class="swiper-slide">
-							<div class="img">
-								<a href="javascript:void(0)">
-									<img src="images/art-pr-icon.png">
-								</a>
-								<div class="swiper-title">
-									￥11
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="img">
-								<a href="javascript:void(0)">
-									<img src="images/art-pr-icon.png">
-								</a>
-								<div class="swiper-title">
-									￥45
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="img">
-								<a href="javascript:void(0)">
-									<img src="images/art-pr-icon.png">
-								</a>
-								<div class="swiper-title">
-									￥578
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="img">
-								<a href="javascript:void(0)">
-									<img src="images/art-pr-icon.png">
-								</a>
-								<div class="swiper-title">
-									￥9468
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--第一块 end-->
-			<!--第二块-->
-			<div class="poster">
-				<a href="javascript:void(0)"><img src="images/art-icon.png"></a>
-				<div class="mask"></div>
-				<div class="poster-font">·渐变色太美，尤其是用在窗帘上</div>
-			</div>
-			<div class="center-4-banner">
-				<div class="swiper-container">
-					<div class="swiper-wrapper banner-line-space">
-						<div class="swiper-slide">
-							<div class="img">
-								<a href="javascript:void(0)">
-									<img src="images/art-pr-icon.png">
-								</a>
-								<div class="swiper-title">
-									￥11
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="img">
-								<a href="javascript:void(0)">
-									<img src="images/art-pr-icon.png">
-								</a>
-								<div class="swiper-title">
-									￥45
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="img">
-								<a href="javascript:void(0)">
-									<img src="images/art-pr-icon.png">
-								</a>
-								<div class="swiper-title">
-									￥578
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="img">
-								<a href="javascript:void(0)">
-									<img src="images/art-pr-icon.png">
-								</a>
-								<div class="swiper-title">
-									￥9468
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!--第二块 end-->
-		</div>
-		<!--专题推荐 end-->
-
-		<!--底部-->
-		{include file="footer"}
-		<!--底部 end-->
-
-	</body>
-	</html>
+<script src="__STATICindex__/js/jquery-3.2.1.min.js"></script>
+<script src="__STATICindex__/assets/js/amazeui.min.js"></script>
+<script>
+	$('.am-slider').flexslider({
+		slideshow: true,
+		slideshowSpeed: 3000,
+		pauseOnAction: true,			  //用户操作停止轮播
+        controlNav: true,               // Boolean: 是否创建控制点
+        directionNav: false,			 //是否创建上下页按钮
+	});
+</script>
+</body>
+</html>

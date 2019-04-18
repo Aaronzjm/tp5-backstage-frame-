@@ -1,7 +1,6 @@
 <?php
 namespace app\admin\controller;
 
-use app\common\controller\BaseController;
 use app\common\validate\IdMustPositiveInteger;
 
 class Category extends BaseController

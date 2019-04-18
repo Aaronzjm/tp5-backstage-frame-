@@ -9,8 +9,6 @@
 namespace app\admin\controller;
 
 
-use app\common\controller\BaseController;
-
 class User extends BaseController
 {
     public function index(){

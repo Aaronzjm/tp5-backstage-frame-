@@ -9,7 +9,6 @@
 namespace app\admin\controller;
 
 
-use app\common\controller\BaseController;
 use app\common\validate\RegisterValidate;
 
 class Register extends BaseController

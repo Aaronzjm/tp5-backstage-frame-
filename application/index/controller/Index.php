@@ -5,11 +5,19 @@ use think\Controller;
 
 class Index extends Controller
 {
+    private $obj;
+
+    public function _initialize(){
+        $this->obj = model('Banner');
+    }
     public function index()
     {
+        $banners = $this->obj->getBannerAll('sort','desc');
         /*$build = include APP_PATH.'build.php';运行application下的build文件生成自定义目录
         \think\Build::run($build);*/
-        return $this->fetch();
+        return $this->fetch('',[
+            'banners' => $banners
+        ]);
     }
 
     public function hello()

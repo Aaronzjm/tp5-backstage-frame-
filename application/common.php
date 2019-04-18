@@ -10,3 +10,12 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+//返回前端的数据集 $rs 1：表示成功 0：表示失败
+function returnData($rs, $msg, $data=[]){
+    $result = [
+        'rs' => $rs,
+        'msg' => $msg,
+        'data' => $data
+    ];
+    exit(json_encode($result));
+}
