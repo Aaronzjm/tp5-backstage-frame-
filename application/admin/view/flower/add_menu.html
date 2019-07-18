@@ -1,0 +1,90 @@
+{include file="public/header"}
+<style>
+	.h-div{
+		width: 300px;
+		height: 200px;
+		margin: 10px 15px;
+		background-image:url("__websitImg__/static/admin/images/banner/shangchuan.png");
+		background-size: 300px 200px;
+	}
+	.h-file{
+		position: absolute;
+		top:0;
+		left: 0;
+		width: 300px;
+		height: 200px;
+		opacity: 0;
+	}
+	.h-img{
+		position: absolute;
+		top:0;
+		left: 0;
+		width: 300px!important;
+		height: 200px;
+		background-color: #fff;
+	}
+</style>
+<div class="page-container">
+	<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="" name="name">
+			</div>
+		</div>
+	<div class="row cl" style="padding-top: 10px;">
+		<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类描述：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="" placeholder="" id="" name="describe">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>分类图片：</label>
+		<div class="formControls col-xs-8 col-sm-9 h-div">
+			<input type="file" class="h-file" accept="image/*" onchange="upImg(this);">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-2">排序值：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value="0" placeholder="" id="" name="sort">
+		</div>
+	</div>
+	<div class="row cl" style="padding-top: 50px;">
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+			<button onClick="submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交</button>
+			<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+		</div>
+	</div>
+</div>
+<script>
+    var file;
+	function upImg(_this){
+		file= _this.files[0];
+	    var add = '<img name="img" class="h-img" style="width:200px;height:200px;" src="'+window.URL.createObjectURL(file)+'">';
+	    $(_this).parent().append(add);
+    }
+	function submit(){
+	    var formdata=new FormData();
+        formdata.append('img', file);
+        formdata.append('name',$("input[name='name']").val());
+        formdata.append('describe',$("input[name='describe']").val());
+        formdata.append('sort', $("input[name='sort']").val());
+	    $.ajax({
+			url: '__websitUrl__/admin/Flower/save_menu',
+			type: 'post',
+			data: formdata,
+            processData: false,
+            contentType: false,
+			dataType: 'json',
+			success: function (data) {
+				if(data.rs==1){
+				    parent.location.reload();
+				}
+            },
+			error: function(data){
+                console.log('error');
+            }
+		})
+	}
+</script>
+{include file="public/footer"}

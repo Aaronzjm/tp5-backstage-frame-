@@ -22,7 +22,7 @@ class BaseValidate extends Validate
             return true;
         }else{
             $error = $this->getError();
-            throw new Exception($error);
+            return $error;
         }
     }
 

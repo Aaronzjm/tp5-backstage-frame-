@@ -9,9 +9,6 @@
 namespace app\common\model;
 
 
-
-use think\Model;
-
 class Banner extends BaseModel
 {
     protected $hidden = ['create_time'];
@@ -41,6 +38,7 @@ class Banner extends BaseModel
      * @return false|\PDOStatement|string|\think\Collection
      */
     public function getBannerAll($name, $list, $status=1){
-        return $this->getAllandSort($name, $list, $status);
+        $data = $this->getAllandSort($name, $list, $status);
+        return ($data);
     }
 }

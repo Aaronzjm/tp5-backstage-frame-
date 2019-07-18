@@ -14,31 +14,6 @@
 	<link href="__STATICindex__/css/common.css" rel="stylesheet">
 	
 <style type="text/css">
-	*{
-	padding:0;
-	margin:0;
-	font-size: 0.65rem;
-	color:#353535;
-	}
-	a{
-	text-decoration: none;
-	}
-	html, body {
-	position: relative;
-	height: 100%;
-	}
-	body {
-	font-family: Helvetica Neue, Helvetica, Arial, sans-serif; 
-	color:#000;
-	margin: 0;
-	padding: 0;
-	}
-	/*公用*/
-	.blockSpace {
-	margin-bottom: 0.4rem;
-	background-color: #fff;
-	}
-	/*公用end*/
 	/*返回头部*/
 	.returnTitle{
 	background: #fff;
@@ -53,7 +28,7 @@
 	float: left;
 	width: 2rem;
 	height: 2rem;
-	background: url('__STATICindex__/images/user/login/left-icon.png') no-repeat;
+	background: url(__STATICindex__/images/user/login/left-icon.png) no-repeat;
 	background-size: 0.4rem 0.8rem;
 	background-position: 50% 50%;
 	font-size: 0.55rem;
@@ -71,9 +46,9 @@
 	}
 	.loginTitle img{
 		display: block;
-		height: 1.5rem;
-		width: 5.25rem;
-		padding:1.5rem 0 2rem 0;
+		height: 5rem;
+		width: 5rem;
+		padding:1.5rem 0 1rem 0;
 		margin: 0 auto;
 	}
 	.col{
@@ -149,7 +124,6 @@
 		height: 1.75rem;
 		color:#fff;
 		background-color: #b78c56;
-		opacity: 0.5;
 	}
 	.agree{
 		padding:0 1rem;
@@ -206,12 +180,12 @@
 <body>
 	<div class="returnTitle">
 		<a href="javascript:history.go(-1);void(0);" class="returnTitle-left"></a>
-		登陆
+		登录
 		<a class="returnTitle-right"></a>
 	</div>
 
 	<div class="loginTitle">
-		<img src="__STATICindex__/images/user/logo-icon.png">
+		<img src="__STATICindex__/images/user/login/login.png">
 	</div>
 	<div class="changeCon">
 		<div class="zwei">
@@ -258,41 +232,87 @@
 	<a class="chanLogin-right">忘记密码</a>
 	
 	<script type="text/javascript">
-		$(function(){
-			$(".chanLogin").on("click",function(){
-				if($(".changeCon").hasClass("noshow")){
-					$(".changeCon").removeClass("noshow")
-					$(this).parents(".changeCon").addClass("noshow")
-				}
-				if($(".agree").hasClass("noshow")){
-					$(".agree").removeClass("noshow")
-				}else{
-					$(".agree").addClass("noshow")
-				}
-			})
-			
-			var swiper = new Swiper('.swiper-container', { 
-		    	onSlideChangeStart:function(swiper){
-			    	var a=$(".swiper-slide-active").attr('i');
-			    	$('.zwei span').each(function(){
-			    		if($(this).attr("j")==a){
-			    			$('.zwei span').css('color','#8b8b8b');
-			    		 	$(this).css('color','#353535');
-			    		}
-			    	})
-			    }
-		    });
-			$(".zwei span").on("click",function(){
-				$('.zwei span').css('color','#8b8b8b');
-    		 	$(this).css('color','#353535');
-			    var a=$(this).attr('j');
-    		 	if(a==1){
-    		 		swiper.slidePrev();
-    		 	}else{
-    		 		swiper.slideNext();
-    		 	}
-			})
+		/*滑动，点击切换*/
+		var swiper = new Swiper('.swiper-container', {
+			onSlideChangeStart:function(swiper){
+				var a=$(".swiper-slide-active").attr('i');
+				$('.zwei span').each(function(){
+					if($(this).attr("j")==a){
+						$('.zwei span').css('color','#8b8b8b');
+						$(this).css('color','#353535');
+					}
+				})
+			}
+		});
+		$(".zwei span").on("click",function(){
+			$('.zwei span').css('color','#8b8b8b');
+			$(this).css('color','#353535');
+			var a=$(this).attr('j');
+			if(a==1){
+				swiper.slidePrev();
+			}else{
+				swiper.slideNext();
+			}
 		})
+		/*滑动，点击切换 end*/
+		/*登录按钮*/
+        function submit(){
+            if($(".zwei").attr("active")==2){
+                var name=$('#name').val();
+                var password=$('#password').val();
+                check('name');
+                check('password');
+                if(!name_status && !phone_text.test($('#name').val())){
+                    promp_t('账号不正确',1500);
+                }else if(!password_status){
+                    promp_t('密码格式不正确',1500);
+                }else{
+                    var a = typeof($('input[type="checkbox"]:checked').val()) == 'undefined'?'n':$('input[type="checkbox"]:checked').val();
+                    $.ajax({
+                        url:'<?=base_url()?>ajax/login_check',
+                        type:'post',
+                        data:{'user_name':name,'pwd':password,'auto':a},
+                        dataType:'json',
+                        timeout:150000,
+                        beforeSend:function(){
+                            cnm();
+                            $('.login-submit').removeAttr('onclick','submit();');
+                        },
+
+                        error:function(){
+                            wcnm();
+                            $('.login-submit').attr('onclick','submit();');
+                            promp('程序出错，请刷新重试');
+                        },
+                        success:function(data){
+                            wcnm();
+                        },
+                    })
+                }
+            }else{
+                if($("#phone").val()==''){
+                    promp_t("请输入手机号",'1500')
+                }
+                if($("#useCode").val()==''){
+                    promp_t("请输入验证码",'1500')
+                }
+                if(!$('#agree').is(':checked')){
+                    promp_t("请勾选服务协议",'1500')
+                }else{
+                    $.ajax({
+                            url:'<?=base_url()?>ajax/save_reg4',
+                            type:'post',
+                            data:{'phone':$('#phone').val(),'yzm':$('#useCode').val(),'auto':'y','invite_id':'',
+                    		dataType:'json',
+                        success:function(data){
+
+                    }
+                })
+                }
+
+            }
+        }
+		/*登录按钮*/
 	</script>
 </body>
 </html>

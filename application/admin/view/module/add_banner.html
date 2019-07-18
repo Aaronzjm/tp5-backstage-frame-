@@ -59,25 +59,33 @@
     }
 	function submit(){
 	    var formdata=new FormData();
-        formdata.append('img', file);
-        formdata.append('name',$("input[name='name']").val());
-        formdata.append('sort', $("input[name='sort']").val());
-	    $.ajax({
-			url: '__websitUrl__/admin/Module/save_banner',
-			type: 'post',
-			data: formdata,
-            processData: false,
-            contentType: false,
-			dataType: 'json',
-			success: function (data) {
-				if(data.rs==1){
-				    parent.location.reload();
-				}
-            },
-			error: function(data){
-                console.log('error');
-            }
-		})
+	    if(!$("input[name='name']").val()){
+	    	myselfinfo('请输入标题');
+	    }else if(!file){
+	    	myselfinfo('请上传图片');
+	    }else if(!$("input[name='sort']").val()){
+	    	myselfinfo('请填写序号');
+	    }else{
+        	formdata.append('name',$("input[name='name']").val());
+        	formdata.append('img', file);
+        	formdata.append('sort', $("input[name='sort']").val());
+		    $.ajax({
+				url: '__websitUrl__/admin/Module/save_banner',
+				type: 'post',
+				data: formdata,
+	            processData: false,
+	            contentType: false,
+				dataType: 'json',
+				success: function (data) {
+					if(data.rs==1){
+					    parent.location.reload();
+					}
+	            },
+				error: function(data){
+	                myselfinfo('error，请刷新重试！');
+	            }
+			})	
+	    }
 	}
 </script>
 {include file="public/footer"}

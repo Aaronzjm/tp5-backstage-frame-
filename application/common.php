@@ -19,3 +19,15 @@ function returnData($rs, $msg, $data=[]){
     ];
     exit(json_encode($result));
 }
+
+function ObjectToArray($object){
+    if(is_object($object)){
+        $array = (array)$object;
+    }
+    if(is_array($object)){
+        foreach ($object as $k => $v){
+            $array[$k] =  objectToArray($v);
+        }
+    }
+    return $array;
+}

@@ -30,11 +30,13 @@ class Register extends BaseController
      * 后台注册功能
      */
     public function register(){
-        (new RegisterValidate())->goCheck();
-        $post = $this->getData();;
+        $check = (new RegisterValidate())->goCheck();
+        $this->error($check);
+        $post = $this->getData();
+        return $post;
         $rp = $this->obj->where('user_name',$post['username'])->select();
         if($rp){
-            $this->error('改用户已经存在');
+            $this->error('该用户已经存在');
         }
         $data = [
             'username' => $post['username'],
